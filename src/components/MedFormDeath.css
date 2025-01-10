@@ -1,0 +1,84 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.header1 {
+  background-color: rgb(212, 207, 207);
+  width: 150%;
+  margin-top: -5px;
+  margin-left: -410px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 569px;
+}
+
+.heading {
+  margin-left: 50px;
+}
+
+p.stat {
+  margin-left: 40px;
+}
+
+.topBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.container {
+  padding-top: 20px;
+  height: 100%;
+  width: 110%;
+  position: relative;
+  margin-left: 50px;
+}
+
+.main {
+  margin-left: -350px;
+}
+
+.summaryTabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+span.tab {
+  background-color: transparent;
+  color: black;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.main {
+  width: 110%;
+}
+
+.rowHeader {
+  background-color: rgb(243, 243, 243);
+  margin-top: 15px;
+}
+
+.col {
+  border: 1px solid rgb(154, 201, 216);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
