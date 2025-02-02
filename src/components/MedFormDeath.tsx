@@ -160,6 +160,7 @@ const MedFormDeath: React.FC = () => {
                         </div>
                     </div>
 
+                    <br />
                     {/* Basic Information Section */}
                     <div className="row">
                         <div className="col">
