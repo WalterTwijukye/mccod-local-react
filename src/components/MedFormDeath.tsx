@@ -6,11 +6,11 @@ import './MedFormDeath.css';
 
 const MedFormDeath: React.FC = () => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const handleGoToDashboard = () => {
-        navigate('/dashboard'); // Navigate to another page
-    };
+    // const handleGoToDashboard = () => {
+    //     navigate('/dashboard'); // Navigate to another page
+    // };
 
     // State for form data
     const [formData, setFormData] = useState({
@@ -1305,9 +1305,10 @@ const MedFormDeath: React.FC = () => {
                     {/* Submit Button */}
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
-                <button onClick={handleGoToDashboard} className="btn btn-secondary">
-                    Dashboard
-                </button>
+                <br />
+                <br />
+                <br />
+                <br />
                 <FormFooter />
             </div>
         </>
