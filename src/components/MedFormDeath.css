@@ -1,24 +1,7 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
-html {
-  height: 100%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-}
-
 .header1 {
   background-color: rgb(212, 207, 207);
-  width: 150%;
-  margin-top: -5px;
-  margin-left: -410px;
+  width: 100%;
+  margin-top: 50px;
   height: 85px;
   display: flex;
   align-items: center;
@@ -49,10 +32,6 @@ p.stat {
   margin-left: 50px;
 }
 
-.main {
-  margin-left: -350px;
-}
-
 .summaryTabs {
   display: flex;
   align-items: center;
@@ -69,6 +48,7 @@ span.tab {
 
 .main {
   width: 110%;
+  padding-bottom: 70px;
 }
 
 .rowHeader {

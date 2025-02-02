@@ -1,20 +1,7 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
-html {
-  width: 100%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .header {
   position: fixed;
   top: 0;
-  margin-left: -410px;
-  padding-left: 50px;
+  padding: 0 50px;
   width: 100%;
   background-color: rgb(31, 107, 219);
   height: 50px;
