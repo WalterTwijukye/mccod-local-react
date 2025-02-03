@@ -16,13 +16,25 @@ const EventListModal: React.FC<EventListModalProps> = ({ setFormData, onDelete }
 //     closeRef.current?.click()
 //   };
 
-  useEffect(() => {
+useEffect(() => {
     const fetchEvents = async () => {
       const eventsFromDB = await getEventData(); // Fetch events from Dexie DB
       setEvents(eventsFromDB); // Set events into state
     };
 
-    fetchEvents();
+    const modalElement = document.getElementById('eventListModal');
+
+    const handleShowModal = () => {
+      fetchEvents(); // Fetch events whenever the modal opens
+    };
+
+    // Listen for the 'show.bs.modal' event to fetch events
+    modalElement?.addEventListener('show.bs.modal', handleShowModal);
+
+    // Cleanup the event listener when component unmounts
+    return () => {
+      modalElement?.removeEventListener('show.bs.modal', handleShowModal);
+    };
   }, []);
 
   // Handle editing an event
