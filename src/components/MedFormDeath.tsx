@@ -1,11 +1,110 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormHeader from './Header';
 import FormFooter from './Footer';
 import './MedFormDeath.css';
+import FacilitySelect from './FacilitySelect';
+import useFacilityStore from '../stores/useFacilityStore';
+import { addEvent, getStats, updateSyncStatus, clearEventData } from '../stores/useEventsDB';
+import { FormData } from '../types/FormData';
+import EventListModal from './EventListModal';
+
+const defaultFormData: FormData = {
+    MOH_National_Case_Number: '',
+    Inpatient_Number: '',
+    NIN: '',
+    Name: '',
+    Region: '',
+    Occupation: '',
+    District: '',
+    Date_Of_Birth_Known: false,
+    Date_Of_Birth_notKnown: false,
+    County: '',
+    Date_Of_Birth: '',
+    Sub_County: '',
+    Age: { Years: '', Months: '', Days: '', Hours: '', Minutes: '' },
+    Village: '',
+    Sex: '',
+    placeOfDeath: '',
+    Date_Time_Of_Death: '',
+    causeOfDeath1: '',
+    code1: '',
+    causeOfDeathFreeText1: '',
+    Time_Interval_From_Onset_To_Death1: { Time_Interval_Unit1: '', Time_Interval_Qtty1: '' },
+    causeOfDeath2: '',
+    code2: '',
+    causeOfDeathFreeText2: '',
+    Time_Interval_From_Onset_To_Death2: { Time_Interval_Unit2: '', Time_Interval_Qtty2: '' },
+    causeOfDeath3: '',
+    code3: '',
+    causeOfDeathFreeText3: '',
+    Time_Interval_From_Onset_To_Death3: { Time_Interval_Unit3: '', Time_Interval_Qtty3: '' },
+    causeOfDeath4: '',
+    code4: '',
+    causeOfDeathFreeText4: '',
+    Time_Interval_From_Onset_To_Death4: { Time_Interval_Unit4: '', Time_Interval_Qtty4: '' },
+    State_Underlying_Cause: '',
+    State_Underlying_Cause_Code: '',
+    Doris_Underlying_Cause: '',
+    dorisCode: '',
+    Final_Underlying_Cause: '',
+    Final_Underlying_CauseCode: '',
+    lastSurgeryPerformed: '',
+    dateOfSurgery: '',
+    reasonForSurgery: '',
+    autopsyRequested: '',
+    findingsInCertification: '',
+    disease: false,
+    assault: false,
+    notDetermined: false,
+    accident: false,
+    legalIntervention: false,
+    pendingInvenstigation: false,
+    intentionalSelfHarm: false,
+    war: false,
+    unknown: false,
+    externalCause: false,
+    dateOfInjury: '',
+    describeExternalCause: '',
+    occuranceOfExternalCause: '',
+    multiplePregnancy: '',
+    stillBorn: '',
+    numberOfHrsSurvived: '',
+    birthWeight: '',
+    numberOfCompletedPregWeeks: '',
+    ageOfMother: '',
+    conditionsPerinatalDeath: '',
+    wasDeceasedPreg: '',
+    atWhatPoint: '',
+    didPregancyContributeToDeath: '',
+    parity: '',
+    modeOfDelivery: '',
+    placeOfDelivery: '',
+    deliveredBySkilledAttendant: '',
+    I_Attended_Deceased: false,
+    I_Examined_Body: false,
+    I_Conducted_PostMortem: false,
+    Other: '',
+    examinedBy: '',
+    facility: '',
+    syncStatus: 'pending', // Default sync status
+};
 
 const MedFormDeath: React.FC = () => {
 
+    const { selectedFacility } = useFacilityStore();
+    const [formData, setFormData] = useState<FormData>(defaultFormData);
+    const [eventStats, setEventStats] = useState({ total: 0, sent: 0, notSent: 0 });
+    
+    const fetchStats = async () => {
+        const stats = await getStats();
+        setEventStats(stats);
+    };
+
+    useEffect(() => {
+        fetchStats(); // fetch initially when the component mounts
+    }, []);
+    
     // const navigate = useNavigate();
 
     // const handleGoToDashboard = () => {
@@ -13,89 +112,30 @@ const MedFormDeath: React.FC = () => {
     // };
 
     // State for form data
-    const [formData, setFormData] = useState({
-        MOH_National_Case_Number: '',
-        Inpatient_Number: '',
-        NIN: '',
-        Name: '',
-        Region: '',
-        Occupation: '',
-        District: '',
-        Date_Of_Birth_Known: false,
-        Date_Of_Birth_notKnown: false,
-        County: '',
-        Date_Of_Birth: '',
-        Sub_County: '',
-        Age: { Years: '', Months: '', Days: '', Hours: '', Minutes: '' },
-        Village: '',
-        Sex: '',
-        placeOfDeath: '',
-        Date_Time_Of_Death: '',
-        causeOfDeath1: '',
-        code1: '',
-        causeOfDeathFreeText1: '',
-        Time_Interval_From_Onset_To_Death1: { Time_Interval_Unit1: '', Time_Interval_Qtty1: '' },
-        causeOfDeath2: '',
-        code2: '',
-        causeOfDeathFreeText2: '',
-        Time_Interval_From_Onset_To_Death2: { Time_Interval_Unit2: '', Time_Interval_Qtty2: '' },
-        causeOfDeath3: '',
-        code3: '',
-        causeOfDeathFreeText3: '',
-        Time_Interval_From_Onset_To_Death3: { Time_Interval_Unit3: '', Time_Interval_Qtty3: '' },
-        causeOfDeath4: '',
-        code4: '',
-        causeOfDeathFreeText4: '',
-        Time_Interval_From_Onset_To_Death4: { Time_Interval_Unit4: '', Time_Interval_Qtty4: '' },
-        State_Underlying_Cause: '',
-        State_Underlying_Cause_Code: '',
-        Doris_Underlying_Cause: '',
-        dorisCode: '',
-        Final_Underlying_Cause: '',
-        Final_Underlying_CauseCode: '',
-        lastSurgeryPerformed: '',
-        dateOfSurgery: '',
-        reasonForSurgery: '',
-        autopsyRequested: '',
-        findingsInCertification: '',
-        disease: false,
-        assault: false,
-        notDetermined: false,
-        accident: false,
-        legalIntervention: false,
-        pendingInvenstigation: false,
-        intentionalSelfHarm: false,
-        war: false,
-        unknown: false,
-        externalCause: false,
-        dateOfInjury: '',
-        describeExternalCause: '',
-        occuranceOfExternalCause: '',
-        multiplePregnancy: '',
-        stillBorn: '',
-        numberOfHrsSurvived: '',
-        birthWeight: '',
-        numberOfCompletedPregWeeks: '',
-        ageOfMother: '',
-        conditionsPerinatalDeath: '',
-        wasDeceasedPreg: '',
-        atWhatPoint: '',
-        didPregancyContributeToDeath: '',
-        parity: '',
-        modeOfDelivery: '',
-        placeOfDelivery: '',
-        deliveredBySkilledAttendant: '',
-        I_Attended_Deceased: false,
-        I_Examined_Body: false,
-        I_Conducted_PostMortem: false,
-        Other: '',
-        examinedBy: '',
-    });
+
+    useEffect(() => {
+        if (selectedFacility) {
+          // Update formData with the selected facility when the global selectedFacility changes
+          setFormData((prevData) => ({
+            ...prevData,
+            facility: selectedFacility.id, // Set the selected facility id
+          }));
+        }
+      }, [selectedFacility]);
 
     // Handle form submission
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Form Data Submitted:', formData);
+        try {
+            const updatedFormData = { ...formData, facility: selectedFacility?.id || '' };
+            await addEvent(updatedFormData); // Save event data
+            setFormData(defaultFormData);
+            fetchStats();
+            // alert('Event saved!');
+            console.log('Form Data Submitted:', formData);
+          } catch (error) {
+            console.error('Error saving event', error);
+          }
         // Add API call or further processing here
     };
 
@@ -126,9 +166,9 @@ const MedFormDeath: React.FC = () => {
             <div className="header1">
                 <h2 className="heading">MCCOD-local</h2>
                 <div className="summaryTabs">
-                    <span className="tab">Total Records: <p className="stat">0</p></span>
-                    <span className="tab">Records Sent: <p className="stat">0</p></span>
-                    <span className="tab">Records NOT Sent: <p className="stat">0</p></span>
+                    <span className="tab">Total Records: <p className="stat">{ eventStats.total }</p></span>
+                    <span className="tab">Records Sent: <p className="stat">{ eventStats.sent }</p></span>
+                    <span className="tab">Records NOT Sent: <p className="stat">{ eventStats.notSent }</p></span>
                 </div>
             </div>
             <div className="container">
@@ -137,22 +177,18 @@ const MedFormDeath: React.FC = () => {
                     <div className="row">
                         <div className="col" style={{ border: 'none' }}>
                             <label className="form-label facility" htmlFor="facility">Facility:</label>
-                            <span style={{ marginTop: '-7px', marginLeft: '5px' }}><b>Facility Name</b></span>
+                            <span style={{ marginTop: '-7px', marginLeft: '5px' }}><b>{selectedFacility?.name}</b></span>
                         </div>
                         <div className="col" style={{ border: 'none' }}>
-                            <select
+                            <FacilitySelect
                                 className="form-select"
                                 id="facility"
                                 name="facility"
-                                onChange={handleInputChange}
-                            >
-                                <option value="">Select Facility</option>
-                                {/* Map through facilities if available */}
-                            </select>
+                            />
                         </div>
                         <div className="col" style={{ border: 'none' }}>
                             <div className="topBtns">
-                                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventListModal">
                                     View Records
                                 </button>
                                 <button className="btn btn-primary update-button">Update Record</button>
@@ -1311,6 +1347,7 @@ const MedFormDeath: React.FC = () => {
                 <br />
                 <FormFooter />
             </div>
+            <EventListModal setFormData={setFormData} onDelete={fetchStats} />
         </>
     );
 };

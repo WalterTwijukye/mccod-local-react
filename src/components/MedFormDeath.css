@@ -55,6 +55,34 @@ span.tab {
   margin-top: 15px;
 }
 
+button.del {
+  padding: 5px;
+  border-radius: 3px;
+  border: .25px solid red;
+  color: red;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+button.del:hover {
+  background-color: red;
+  color: white;
+  border-color: darkred;
+}
+
+button.edit {
+  padding: 5px;
+  border-radius: 3px;
+  border: .25px solid rgb(252,185,0);
+  color: #c08d02;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+button.edit:hover {
+  background-color: rgb(252, 185, 0);
+  color: white;
+  border-color: orange;
+}
+
 .col {
   border: 1px solid rgb(154, 201, 216);
   display: flex;
