@@ -10,17 +10,30 @@ This is the frontend application for the offline first version of the DHIS2 Medi
    cd mccod-react
   ```
 
-2. **Install dependencies:**
+2. **Ensure you're using Node.js version 18 or greater:**
+
+   You can check your Node.js version by running:
+
+  ```bash
+   node -v
+  ```
+
+   If you don't have Node.js installed or need to upgrade, visit [Node.js download page](https://nodejs.org/) and follow the instructions.
+
+3. **Install dependencies:**
+
   ```bash
    npm install
   ```
 
-3. **Run the development server:**
+4. **Run the development server:**
+
   ```bash
    npm run dev
   ```
 
-   The app will be available at `http://localhost:5173`.
+   This will start the Vite development server. Open your browser and visit `http://localhost:5173` to view the app.
+
 
 ## Vite Specifics
 
