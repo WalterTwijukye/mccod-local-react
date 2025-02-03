@@ -46,3 +46,4 @@ will create a production-ready version of the app.
 
 - This project uses **Vite** for fast development and bundling.
 - **Dexie.js** is used for client-side database management (event storage).
+- Node V20   least 18
