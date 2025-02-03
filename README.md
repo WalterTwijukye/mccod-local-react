@@ -1,4 +1,7 @@
 # Building and Running the Application in Dev and Production
+npm install
+Dev:  npm run dev
+
 
 
 # React + TypeScript + Vite
