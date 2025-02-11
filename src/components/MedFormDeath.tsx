@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import FormHeader from './Header';
 import FormFooter from './Footer';
 import './MedFormDeath.css';
 import FacilitySelect from './FacilitySelect';
 import useFacilityStore from '../stores/useFacilityStore';
-import { addEvent, getStats, updateSyncStatus, clearEventData } from '../stores/useEventsDB';
+import { addEvent, getStats } from '../stores/useEventsDB';
 import { FormData } from '../types/FormData';
 import EventListModal from './EventListModal';
 
