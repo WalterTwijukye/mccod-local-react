@@ -573,7 +573,7 @@ const MedFormDeath: React.FC = () => {
                                     onNestedChange={handleNestedChange}
                                 />
                                 <CauseOfDeathRow
-                                    label="Report chain of events 'due to' (b to d) in order (if applicable)"
+                                    labelHtml={<th rowSpan={3}>Report chain of events 'due to' (b to d) in order (if applicable)</th>}
                                     rowLetter="b"
                                     causeValue={formData.causeOfDeath2}
                                     codeValue={formData.code2}
@@ -584,7 +584,7 @@ const MedFormDeath: React.FC = () => {
                                     onNestedChange={handleNestedChange}
                                 />
                                 <CauseOfDeathRow
-                                    label=""
+                                    showLabel={false}
                                     rowLetter="c"
                                     causeValue={formData.causeOfDeath3}
                                     codeValue={formData.code3}
@@ -595,7 +595,7 @@ const MedFormDeath: React.FC = () => {
                                     onNestedChange={handleNestedChange}
                                 />
                                 <CauseOfDeathRow
-                                    label=""
+                                    showLabel={false}
                                     rowLetter="d"
                                     causeValue={formData.causeOfDeath4}
                                     codeValue={formData.code4}
