@@ -23,8 +23,8 @@ const OtherConditionsRow: React.FC<OtherConditionsRowProps> = ({
 }) => {
   return (
     <tr>
-      {showMainLabel ? <th rowSpan={rowSpan} colSpan={2}>{mainLabel}</th> : null}
-      <th colSpan={1}>{subLabel}</th>
+      {showMainLabel ? <th rowSpan={rowSpan} colSpan={1}>{mainLabel}</th> : null}
+      <th colSpan={2}>{subLabel}</th>
       <td colSpan={2}>
         <input type="text" className="form-control" name={`cause${subLabel}`} value={causeValue} onChange={onChange} />
       </td>

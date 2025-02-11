@@ -621,8 +621,8 @@ const MedFormDeath: React.FC = () => {
 
 
                                 <tr>
-                                    <th colSpan={2}>State the underlying cause</th>
-                                    <td colSpan={2}>
+                                    <th colSpan={1}>State the underlying cause</th>
+                                    <td colSpan={3}>
                                     <input
                                         type="text"
                                         id="State_Underlying_Cause"
@@ -647,8 +647,8 @@ const MedFormDeath: React.FC = () => {
                                 </tr>
 
                                 <tr>
-                                    <th colSpan={2}>Doris Underlying Cause</th>
-                                    <td colSpan={2}>
+                                    <th colSpan={1}>Doris Underlying Cause</th>
+                                    <td colSpan={3}>
                                     <input
                                         type="text"
                                         id="Doris_Underlying_Cause"
@@ -680,8 +680,8 @@ const MedFormDeath: React.FC = () => {
                                 </tr>
 
                                 <tr>
-                                    <th colSpan={2}>Final Underlying Cause</th>
-                                    <td colSpan={2}>
+                                    <th colSpan={1}>Final Underlying Cause</th>
+                                    <td colSpan={3}>
                                     <select id="Final_Underlying_Cause" name="Final_Underlying_CauseCode" onChange={handleInputChange} className="form-select">
                                         <option value="" disabled>Select an option</option>
                                     </select>
