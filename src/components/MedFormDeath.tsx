@@ -8,6 +8,7 @@ import useFacilityStore from '../stores/useFacilityStore';
 import { addEvent, getStats } from '../stores/useEventsDB';
 import { FormData } from '../types/FormData';
 import EventListModal from './EventListModal';
+import CauseOfDeathRow from './CauseOfDeathRow';
 
 const defaultFormData: FormData = {
     MOH_National_Case_Number: '',
@@ -560,66 +561,50 @@ const MedFormDeath: React.FC = () => {
                             </thead>
                             <tbody>
                                 {/* Row 1 */}
-                                <tr>
-                                    <th>Report disease or condition directly leading to death on line a</th>
-                                    <th>a</th>
-                                    <td>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="causeOfDeath1"
-                                            name="causeOfDeath1"
-                                            value={formData.causeOfDeath1}
-                                            onChange={handleInputChange}
-                                        />
-                                    </td>
-                                    <td>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="code1"
-                                            name="code1"
-                                            value={formData.code1}
-                                            onChange={handleInputChange}
-                                        />
-                                    </td>
-                                    <td>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="causeOfDeathFreeText1"
-                                            name="causeOfDeathFreeText1"
-                                            value={formData.causeOfDeathFreeText1}
-                                            onChange={handleInputChange}
-                                        />
-                                    </td>
-                                    <td>
-                                        <select
-                                            className="form-select"
-                                            id="Time_Interval_From_Onset_To_Death1.Time_Interval_Unit1"
-                                            name="Time_Interval_From_Onset_To_Death1.Time_Interval_Unit1"
-                                            value={formData.Time_Interval_From_Onset_To_Death1.Time_Interval_Unit1}
-                                            onChange={(e) => handleNestedChange('Time_Interval_From_Onset_To_Death1', 'Time_Interval_Unit1', e.target.value)}
-                                        >
-                                            <option value="">Select</option>
-                                            <option value="Years">Years</option>
-                                            <option value="Months">Months</option>
-                                            <option value="Weeks">Weeks</option>
-                                            <option value="Days">Days</option>
-                                            <option value="Hours">Hours</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="Time_Interval_From_Onset_To_Death1.Time_Interval_Qtty1"
-                                            name="Time_Interval_From_Onset_To_Death1.Time_Interval_Qtty1"
-                                            value={formData.Time_Interval_From_Onset_To_Death1.Time_Interval_Qtty1}
-                                            onChange={(e) => handleNestedChange('Time_Interval_From_Onset_To_Death1', 'Time_Interval_Qtty1', e.target.value)}
-                                        />
-                                    </td>
-                                </tr>
+                                <CauseOfDeathRow
+                                    label="Report disease or condition directly leading to death on line a"
+                                    rowLetter="a"
+                                    causeValue={formData.causeOfDeath1}
+                                    codeValue={formData.code1}
+                                    freeTextValue={formData.causeOfDeathFreeText1}
+                                    timeUnitValue={formData.Time_Interval_From_Onset_To_Death1.Time_Interval_Unit1}
+                                    timeQtyValue={formData.Time_Interval_From_Onset_To_Death1.Time_Interval_Qtty1}
+                                    onChange={handleInputChange}
+                                    onNestedChange={handleNestedChange}
+                                />
+                                <CauseOfDeathRow
+                                    label="Report chain of events 'due to' (b to d) in order (if applicable)"
+                                    rowLetter="b"
+                                    causeValue={formData.causeOfDeath2}
+                                    codeValue={formData.code2}
+                                    freeTextValue={formData.causeOfDeathFreeText2}
+                                    timeUnitValue={formData.Time_Interval_From_Onset_To_Death2.Time_Interval_Unit2}
+                                    timeQtyValue={formData.Time_Interval_From_Onset_To_Death2.Time_Interval_Qtty2}
+                                    onChange={handleInputChange}
+                                    onNestedChange={handleNestedChange}
+                                />
+                                <CauseOfDeathRow
+                                    label=""
+                                    rowLetter="c"
+                                    causeValue={formData.causeOfDeath3}
+                                    codeValue={formData.code3}
+                                    freeTextValue={formData.causeOfDeathFreeText3}
+                                    timeUnitValue={formData.Time_Interval_From_Onset_To_Death3.Time_Interval_Unit3}
+                                    timeQtyValue={formData.Time_Interval_From_Onset_To_Death3.Time_Interval_Qtty3}
+                                    onChange={handleInputChange}
+                                    onNestedChange={handleNestedChange}
+                                />
+                                <CauseOfDeathRow
+                                    label=""
+                                    rowLetter="d"
+                                    causeValue={formData.causeOfDeath4}
+                                    codeValue={formData.code4}
+                                    freeTextValue={formData.causeOfDeathFreeText4}
+                                    timeUnitValue={formData.Time_Interval_From_Onset_To_Death4.Time_Interval_Unit4}
+                                    timeQtyValue={formData.Time_Interval_From_Onset_To_Death4.Time_Interval_Qtty4}
+                                    onChange={handleInputChange}
+                                    onNestedChange={handleNestedChange}
+                                />
                                 {/* Add rows 2-9 similarly */}
                             </tbody>
                         </table>
