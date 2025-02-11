@@ -9,6 +9,7 @@ import { addEvent, getStats } from '../stores/useEventsDB';
 import { FormData } from '../types/FormData';
 import EventListModal from './EventListModal';
 import CauseOfDeathRow from './CauseOfDeathRow';
+import OtherConditionsRow from './OtherConditionRow';
 
 const defaultFormData: FormData = {
     MOH_National_Case_Number: '',
@@ -605,6 +606,20 @@ const MedFormDeath: React.FC = () => {
                                     onChange={handleInputChange}
                                     onNestedChange={handleNestedChange}
                                 />
+                                
+  <OtherConditionsRow
+    mainLabel="Other significant conditions contributing to death (time intervals can be included in brackets after the condition)"
+    subLabel="Other 1"
+    showMainLabel
+    rowSpan={5}
+    onChange={handleInputChange}
+  />
+  <OtherConditionsRow subLabel="Other 2" onChange={handleInputChange} />
+  <OtherConditionsRow subLabel="Other 3" onChange={handleInputChange} />
+  <OtherConditionsRow subLabel="Other 4" onChange={handleInputChange} />
+  <OtherConditionsRow subLabel="Other 5" onChange={handleInputChange} />
+
+
                                 {/* Add rows 2-9 similarly */}
                             </tbody>
                         </table>
