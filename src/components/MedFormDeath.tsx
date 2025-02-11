@@ -621,23 +621,24 @@ const MedFormDeath: React.FC = () => {
 
 
                                 <tr>
-                                    <th>State the underlying cause</th>
-                                    <th></th>
-                                    <td>
+                                    <th colSpan={2}>State the underlying cause</th>
+                                    <td colSpan={2}>
                                     <input
                                         type="text"
                                         id="State_Underlying_Cause"
                                         name="State_Underlying_Cause"
+                                        className="form-control" 
                                         value={formData.State_Underlying_Cause}
                                         onChange={handleInputChange}
                                         autoComplete="off"
                                     />
                                     </td>
-                                    <td>
+                                    <td colSpan={2}>
                                     <input
                                         type="text"
                                         id="State_Underlying_CauseCode"
                                         name="State_Underlying_Cause_Code"
+                                        className="form-control" 
                                         value={formData.State_Underlying_Cause_Code}
                                         onChange={handleInputChange}
                                         autoComplete="off"
@@ -646,63 +647,46 @@ const MedFormDeath: React.FC = () => {
                                 </tr>
 
                                 <tr>
-                                    <th>Doris Underlying Cause</th>
-                                    <th></th>
-                                    <td>
+                                    <th colSpan={2}>Doris Underlying Cause</th>
+                                    <td colSpan={2}>
                                     <input
                                         type="text"
                                         id="Doris_Underlying_Cause"
                                         name="Doris_Underlying_Cause"
+                                        className="form-control" 
                                         value={formData.Doris_Underlying_Cause}
                                         onChange={handleInputChange}
                                         autoComplete="off"
                                     />
                                     </td>
-                                    <td>
+                                    <td colSpan={2}>
                                     <input
                                         type="text"
                                         id="dorisCode"
                                         name="dorisCode"
+                                        className="form-control" 
                                         value={formData.dorisCode}
                                         onChange={handleInputChange}
                                         autoComplete="off"
                                     />
                                     </td>
-                                    <td>
+                                    <td colSpan={2}>
                                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         View Report
                                     </button>
 
-                                    {/* Bootstrap Modal */}
-                                    <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div className="modal-dialog">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                            <h5 className="modal-title" id="exampleModalLabel">Doris Report</h5>
-                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div className="modal-body">
-                                            <p style={{ whiteSpace: "pre-line" }}>report</p>
-                                            </div>
-                                            <div className="modal-footer">
-                                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="button" className="btn btn-primary">Ok</button>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
+                                    
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <th>Final Underlying Cause</th>
-                                    <th></th>
-                                    <td>
+                                    <th colSpan={2}>Final Underlying Cause</th>
+                                    <td colSpan={2}>
                                     <select id="Final_Underlying_Cause" name="Final_Underlying_CauseCode" onChange={handleInputChange} className="form-select">
-                                        <option value="" disabled hidden>Select an option</option>
+                                        <option value="" disabled>Select an option</option>
                                     </select>
                                     </td>
-                                    <td>
+                                    <td colSpan={2}>
                                     <input
                                         type="text"
                                         className="form-control"
