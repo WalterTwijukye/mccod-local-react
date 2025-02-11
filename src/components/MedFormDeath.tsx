@@ -607,20 +607,113 @@ const MedFormDeath: React.FC = () => {
                                     onNestedChange={handleNestedChange}
                                 />
                                 
-  <OtherConditionsRow
-    mainLabel="Other significant conditions contributing to death (time intervals can be included in brackets after the condition)"
-    subLabel="Other 1"
-    showMainLabel
-    rowSpan={5}
-    onChange={handleInputChange}
-  />
-  <OtherConditionsRow subLabel="Other 2" onChange={handleInputChange} />
-  <OtherConditionsRow subLabel="Other 3" onChange={handleInputChange} />
-  <OtherConditionsRow subLabel="Other 4" onChange={handleInputChange} />
-  <OtherConditionsRow subLabel="Other 5" onChange={handleInputChange} />
+                                <OtherConditionsRow
+                                    mainLabel="Other significant conditions contributing to death (time intervals can be included in brackets after the condition)"
+                                    subLabel="Other 1"
+                                    showMainLabel
+                                    rowSpan={5}
+                                    onChange={handleInputChange}
+                                />
+                                <OtherConditionsRow subLabel="Other 2" onChange={handleInputChange} />
+                                <OtherConditionsRow subLabel="Other 3" onChange={handleInputChange} />
+                                <OtherConditionsRow subLabel="Other 4" onChange={handleInputChange} />
+                                <OtherConditionsRow subLabel="Other 5" onChange={handleInputChange} />
 
 
-                                {/* Add rows 2-9 similarly */}
+                                <tr>
+                                    <th>State the underlying cause</th>
+                                    <th></th>
+                                    <td>
+                                    <input
+                                        type="text"
+                                        id="State_Underlying_Cause"
+                                        name="State_Underlying_Cause"
+                                        value={formData.State_Underlying_Cause}
+                                        onChange={handleInputChange}
+                                        autoComplete="off"
+                                    />
+                                    </td>
+                                    <td>
+                                    <input
+                                        type="text"
+                                        id="State_Underlying_CauseCode"
+                                        name="State_Underlying_Cause_Code"
+                                        value={formData.State_Underlying_Cause_Code}
+                                        onChange={handleInputChange}
+                                        autoComplete="off"
+                                    />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Doris Underlying Cause</th>
+                                    <th></th>
+                                    <td>
+                                    <input
+                                        type="text"
+                                        id="Doris_Underlying_Cause"
+                                        name="Doris_Underlying_Cause"
+                                        value={formData.Doris_Underlying_Cause}
+                                        onChange={handleInputChange}
+                                        autoComplete="off"
+                                    />
+                                    </td>
+                                    <td>
+                                    <input
+                                        type="text"
+                                        id="dorisCode"
+                                        name="dorisCode"
+                                        value={formData.dorisCode}
+                                        onChange={handleInputChange}
+                                        autoComplete="off"
+                                    />
+                                    </td>
+                                    <td>
+                                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        View Report
+                                    </button>
+
+                                    {/* Bootstrap Modal */}
+                                    <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog">
+                                        <div className="modal-content">
+                                            <div className="modal-header">
+                                            <h5 className="modal-title" id="exampleModalLabel">Doris Report</h5>
+                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div className="modal-body">
+                                            <p style={{ whiteSpace: "pre-line" }}>report</p>
+                                            </div>
+                                            <div className="modal-footer">
+                                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" className="btn btn-primary">Ok</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Final Underlying Cause</th>
+                                    <th></th>
+                                    <td>
+                                    <select id="Final_Underlying_Cause" name="Final_Underlying_CauseCode" onChange={handleInputChange} className="form-select">
+                                        <option value="" disabled hidden>Select an option</option>
+                                    </select>
+                                    </td>
+                                    <td>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="Final_Underlying_CauseCode"
+                                        name="Final_Underlying_CauseCode"
+                                        value={formData.Final_Underlying_CauseCode}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
