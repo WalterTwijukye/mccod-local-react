@@ -545,7 +545,7 @@ const MedFormDeath: React.FC = () => {
                             <h4>Frame A: Medical Data. Part 1 and 2</h4>
                         </div>
                     </div>
-                    <div className="tables">
+                    <div className="row tables">
                         <table>
                             <thead>
                                 <tr>
