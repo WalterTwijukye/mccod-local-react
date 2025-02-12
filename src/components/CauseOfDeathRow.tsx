@@ -32,7 +32,7 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
       {showLabel ? (label ? <th>{label}</th> : labelHtml ? labelHtml : <></>) : <></>}
       <th>{rowLetter}</th>
       <td>
-        <input type="text" className="form-control" name={`causeOfDeath${rowLetter}`} value={causeValue} onChange={onChange} />
+        <input type="text" className="form-control ctw-inputo" autoComplete="off" data-ctw-ino={`icd-${rowLetter}`} name={`causeOfDeath${rowLetter}`} value={causeValue} onChange={onChange} />
       </td>
       <td>
         <input type="text" className="form-control" name={`code${rowLetter}`} value={codeValue} onChange={onChange} />
@@ -53,6 +53,7 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
       <td>
         <input type="text" className="form-control" name={`timeQty${rowLetter}`} value={timeQtyValue} onChange={(e) => onNestedChange('Time_Interval', 'Qty', e.target.value)} />
       </td>
+      <div className="ctw-window" data-ctw-ino={`icd-${rowLetter}`}></div>
     </tr>
   );
 };
