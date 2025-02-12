@@ -1,3 +1,5 @@
+import { CauseOfDeath } from "./CauseOfDeath";
+
 // Define the types and interfaces for the form data
 export interface FormData {
     id?: number;
@@ -18,28 +20,38 @@ export interface FormData {
     Sex: string;
     placeOfDeath: string;
     Date_Time_Of_Death: string;
+    
     causeOfDeath1: string;
     code1: string;
     causeOfDeathFreeText1: string;
     Time_Interval_From_Onset_To_Death1: { Time_Interval_Unit1: string; Time_Interval_Qtty1: string };
+    
     causeOfDeath2: string;
     code2: string;
     causeOfDeathFreeText2: string;
     Time_Interval_From_Onset_To_Death2: { Time_Interval_Unit2: string; Time_Interval_Qtty2: string };
+    
     causeOfDeath3: string;
     code3: string;
     causeOfDeathFreeText3: string;
     Time_Interval_From_Onset_To_Death3: { Time_Interval_Unit3: string; Time_Interval_Qtty3: string };
+    
     causeOfDeath4: string;
     code4: string;
     causeOfDeathFreeText4: string;
     Time_Interval_From_Onset_To_Death4: { Time_Interval_Unit4: string; Time_Interval_Qtty4: string };
+    
+    causesOfDeath: CauseOfDeath[];
+
     State_Underlying_Cause: string;
     State_Underlying_Cause_Code: string;
+
     Doris_Underlying_Cause: string;
     dorisCode: string;
+
     Final_Underlying_Cause: string;
     Final_Underlying_CauseCode: string;
+
     lastSurgeryPerformed: string;
     dateOfSurgery: string;
     reasonForSurgery: string;

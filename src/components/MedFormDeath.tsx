@@ -45,6 +45,15 @@ const defaultFormData: FormData = {
     code4: '',
     causeOfDeathFreeText4: '',
     Time_Interval_From_Onset_To_Death4: { Time_Interval_Unit4: '', Time_Interval_Qtty4: '' },
+    
+    causesOfDeath: Array.from({ length: 4 }, () => ({
+        cause: '',
+        code: '',
+        causeFreeText: '',
+        timeIntervalUnit: '',
+        timeIntervalQuantity: ''
+    })),
+    
     State_Underlying_Cause: '',
     State_Underlying_Cause_Code: '',
     Doris_Underlying_Cause: '',
