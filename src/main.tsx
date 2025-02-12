@@ -8,7 +8,8 @@ import * as ECT from '@whoicd/icd11ect';
 import '@whoicd/icd11ect/style.css';
 
 const mySettings = {
-  apiServerUrl: "https://icd11restapi-developer-test.azurewebsites.net"   
+  apiServerUrl: "http://localhost:8382/",
+  height: "60vh"   
 };
 
 // configure the ECT Handler
