@@ -67,7 +67,7 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
           name={`timeUnit${index}`}
           value={timeUnitValue}
           onChange={(e) =>
-            onNestedChange(`Time_Interval_From_Onset_To_Death${index}`, 'Time_Interval_Unit', e.target.value)
+            onNestedChange(`Time_Interval_From_Onset_To_Death${index}`, `Time_Interval_Unit${index}`, e.target.value)
           }
         >
           <option value="">Select</option>
@@ -85,7 +85,7 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
           name={`timeQty${index}`}
           value={timeQtyValue}
           onChange={(e) =>
-            onNestedChange(`Time_Interval_From_Onset_To_Death${index}`, 'Time_Interval_Qtty', e.target.value)
+            onNestedChange(`Time_Interval_From_Onset_To_Death${index}`, `Time_Interval_Qtty${index}`, e.target.value)
           }
         />
       </td>
