@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import * as ECT from '@whoicd/icd11ect';
+import { ISelectedEntity } from '../types/ICDSelectedEntity.ts';
+import '@whoicd/icd11ect/style.css';
 
 interface CauseOfDeathRowProps {
   index: number;
@@ -29,6 +32,29 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
   onChange,
   onNestedChange,
 }) => {
+
+
+
+const settings = {
+  // apiServerUrl: "http://localhost:8382/",
+  apiServerUrl: 'https://icd11restapi-developer-test.azurewebsites.net',
+  height: "60vh",
+  autoBind: false,
+};
+const callbacks = {
+  selectedEntityFunction: (selectedEntity: ISelectedEntity) => {
+    // shows an alert with the code selected by the user and then clears the search results
+    alert('ICD-11 code selected: ' + selectedEntity.code);
+    ECT.Handler.clear(`icd-${index}`);
+  },
+};
+
+useEffect(() => {
+  ECT.Handler.configure(settings, callbacks);
+  ECT.Handler.bind(`icd-${index}`);
+}, [])
+
+
   return (
     <tr>
       {showLabel ? (label ? <th>{label}</th> : labelHtml ? labelHtml : <></>) : <></>}
@@ -41,7 +67,9 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
           name={`causeOfDeath${index}`}
           value={causeValue}
           onChange={onChange}
+          data-ctw-ino={`icd-${index}`}
         />
+        <div className="ctw-window" data-ctw-ino={`icd-${index}`}></div>
       </td>
       <td>
         <input
@@ -89,7 +117,7 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
           }
         />
       </td>
-      <div className="ctw-window" data-ctw-ino={`icd-${index}`}></div>
+      
     </tr>
   );
 };
