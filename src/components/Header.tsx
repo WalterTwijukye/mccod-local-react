@@ -9,6 +9,9 @@ const FormHeader: React.FC = () => {
         <a href="https://icdcdn.who.int/icdapibinaries/icdapi-setup-2.4.0.msi" download>
           <button className="dashboardBtn">Download & Install ICD-API</button>
         </a>
+        <a href="/Xproxy.exe" download>
+          <button className="dashboardBtn">Download Xproxy</button>
+        </a>
         <span className="internetStatus">ICD-API: Online</span>
         <span className="internetStatus">
           <span className="circle online"></span> Online
