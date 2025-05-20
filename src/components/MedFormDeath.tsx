@@ -13,16 +13,16 @@ import { refreshIndexedDB, syncDorisAndSend } from '../services/dorisSyncService
 import { getEventsMissingDoris } from '../stores/useEventsDB';
 import db from '../stores/useEventsDB';  // Your IndexedDB instance
 
-interface DorisResponse {
-    stemCode: string;
-    stemURI: string;
-    code: string;
-    uri: string;
-    report: string;
-    reject: boolean;
-    error: string | null;
-    warning: string;
-}
+// interface DorisResponse {
+//     stemCode: string;
+//     stemURI: string;
+//     code: string;
+//     uri: string;
+//     report: string;
+//     reject: boolean;
+//     error: string | null;
+//     warning: string;
+// }
 
 interface Props {
     isOnline: boolean;
