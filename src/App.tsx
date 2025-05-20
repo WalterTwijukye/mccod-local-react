@@ -1,19 +1,44 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import Home from './pages/Home';
 import MedFormDeath from './components/MedFormDeath';
+import { useInternetStatus } from './hooks/useInternetStatus';
 import './App.css';
 
+/**
+ * Main application component
+ */
 function App() {
+  const isOnline = useInternetStatus();
+  const [syncInProgress, setSyncInProgress] = useState(false);
+
   return (
     <BrowserRouter>
+      {/* Online status indicator */}
+      <div className="sync-status-indicator" style={{
+        position: 'fixed',
+        top: '10px',
+        right: '10px',
+        padding: '5px 10px',
+        borderRadius: '4px',
+        fontSize: '12px',
+        backgroundColor: isOnline ? '#dff0d8' : '#f2dede',
+        color: isOnline ? '#3c763d' : '#a94442',
+        zIndex: 1000,
+      }}>
+        {isOnline ? 'Online' : 'Offline'}
+        {syncInProgress && ' - Syncing...'}
+      </div>
+      
       <Routes>
-        {/* Home Page */}
-        {/* <Route path="/" element={<Home />} /> */}
-
-        {/* Medical Form Page */}
-        <Route path="/" element={<MedFormDeath />} />
-
-        {/* Add more routes as needed */}
+        <Route 
+          path="/" 
+          element={
+            <MedFormDeath 
+              isOnline={isOnline} 
+              onSyncStateChange={setSyncInProgress} 
+            />
+          } 
+        />
       </Routes>
     </BrowserRouter>
   );

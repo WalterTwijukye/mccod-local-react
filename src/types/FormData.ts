@@ -91,5 +91,57 @@ export interface FormData {
     examinedBy: string;
     facility: string; // Added facility
     syncStatus: 'pending' | 'synced'; // Added sync status
+
+    referencePersonName: string;
+    referencePersonFirstName: string;
+    referencePersonAddress: string;
+    // certifierDS: string;
+    certifierService: string;
+    professionalQualification: string;
+    burialObstacle: string;
+    deceasedArrival: string;
+    assistanceDoctor: boolean;
+    assistanceMidwife: boolean;
+    childType: string;
+
+    Patient_file_number: string,
+    CNIB_or_passport:  string,
+    Surname: string,
+    First_name: string,
+    Place_of_birth: string,
+    Nationality: string,
+    Country: string,
+    Province: string,
+    certifierName: string,
+    professionalOrderNumber: string,
+    Qualification: string,
+    other_Signft_Disease_States: boolean,
+    Circumstances_of_death: string,
+    Child_Born_Alive_Date: string,
+    Child_Stillborn_Date: string,
+    Died_giving_birth: boolean,
+    During_work: boolean,
+    Unknown_birth_death: boolean,
+    Date_Of_Birth_Mother: string,
+    Age_of_Mother: string,
+    Number_of_prev_pregnancies: string,
+    Date_Of_Last_Preg: string,
+    Live_Birth: string,
+    Last_preg_issue: string,
+    Stillbirth: string,
+    Alive_Mother: boolean,
+    Abortion_Mother: string,
+    Stillbirth_checkbx: boolean,
+    Abortion_Moth_checkbx: boolean,
+    Date_Of_Last_Period: string,
+    Delivery: string,
+    Prenatal_care_visits: string,
+    assistanceOtherTrained: string,
+    assistanceOther: string,
+    childOnlyOne: boolean,
+    childSecondTwin: boolean,
+    childFirstTwin: boolean,
+    otherMultipleBirth: string,
+
   }
   
