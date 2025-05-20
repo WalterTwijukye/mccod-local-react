@@ -37,8 +37,8 @@ const CauseOfDeathRow: React.FC<CauseOfDeathRowProps> = ({
 
   useEffect(() => {
     const settings = {
-      // apiServerUrl: 'http://localhost:8382/icd', 
-      apiServerUrl: 'https://icd11restapi-developer-test.azurewebsites.net',
+      apiServerUrl: 'http://localhost:8382', 
+      // apiServerUrl: 'https://icd11restapi-developer-test.azurewebsites.net', 
       autoBind: false,
     };
 
